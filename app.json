@@ -1,4 +1,4 @@
-{
+{ 
   "expo": {
     "name": "My Timer",
     "slug": "BoxingTimer",
@@ -8,11 +8,11 @@
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/NorthwesternWildcats.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/NorthwesternWildcats.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
