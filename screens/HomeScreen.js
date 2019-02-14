@@ -16,7 +16,9 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
+import CountDown from 'react-native-countdown-component';
 import TimePicker from "../components/TimePicker"
+
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -46,27 +48,28 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/dog.gif')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
 
           <View    style= {{alignItems: 'center'}}>
-            {this._maybeRenderDevelopmentModeWarning()}
             
             <TimePicker/>
-            <Button
+             <Button
               onPress={() => {this.handleVibrationButton()}}
               title="Feel the vibrations"
               color="#841584"
               accessibilityLabel="Learn more about this purple button"
             />
+
+            <CountDown
+              until={60 * 10 + 30}
+              size={30}
+              onFinish={() => alert('Finished')}
+              digitStyle={{backgroundColor: '#000'}}
+              digitTxtStyle={{color: '#1CC625'}}
+              timeToShow={['M', 'S']}
+              timeLabels={{m: 'MM', s: 'SS'}}
+            />
+
+           
 
           </View>
 
@@ -119,6 +122,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 3,
     flex: 1,
     backgroundColor: '#fff',
   },
@@ -130,7 +134,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
   welcomeContainer: {
     alignItems: 'center',

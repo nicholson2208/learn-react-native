@@ -10,9 +10,9 @@
     ],
     "version": "0.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/NorthwesternWildcats.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/images/NorthwesternWildcats.png",
+      "image": "./assets/images/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
