@@ -1,8 +1,31 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { Button,  ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
+
+
 export default class LinksScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      location: "nothing"
+    };
+  
+    this.findCoordinates = this.findCoordinates.bind(this);
+  }
+
+  findCoordinates(){
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const location = JSON.stringify(position);
+        this.setState({ location });
+      },
+      error => Alert.alert(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
+  };
+
+
   static navigationOptions = {
     title: 'Links',
   };
@@ -10,9 +33,14 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+        <Button
+          onPress={() => {this.findCoordinates()}}
+          title="get coordinates"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />      
+        <Text>Find My Coords?</Text>
+        <Text>Location: {this.state.location}</Text>
       </ScrollView>
     );
   }

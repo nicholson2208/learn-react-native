@@ -20,6 +20,11 @@ import CountDown from 'react-native-countdown-component';
 import TimePicker from "../components/TimePicker"
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: "Home",
+  };
+
+
   constructor(props) {
     super(props);
 
