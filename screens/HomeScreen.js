@@ -31,7 +31,10 @@ export default class HomeScreen extends React.Component {
 
     this.state = {
       text: '',
-     
+      image: require('../assets/images/dog.gif')
+      // image: this.props.navigation.getParam("picture") === null ? 
+      // require('../assets/images/dog.gif'):
+      //  this.props.navigation.getParam("picture")
 
     };
 
@@ -64,7 +67,7 @@ export default class HomeScreen extends React.Component {
               accessibilityLabel="Learn more about this purple button"
             />
 
-            <CountDown
+            {/* <CountDown
               until={60 * 10 + 30}
               size={30}
               onFinish={() => alert('Finished')}
@@ -72,8 +75,14 @@ export default class HomeScreen extends React.Component {
               digitTxtStyle={{color: '#1CC625'}}
               timeToShow={['M', 'S']}
               timeLabels={{m: 'MM', s: 'SS'}}
-            />
-
+            /> */}
+          <View>
+          <Image
+            source = {require('../assets/images/dog.gif')}
+            style={{width:50}}
+          
+          />
+          </View>
            
 
           </View>
@@ -127,7 +136,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 3,
+    paddingVertical: 0,
     flex: 1,
     backgroundColor: '#fff',
   },
